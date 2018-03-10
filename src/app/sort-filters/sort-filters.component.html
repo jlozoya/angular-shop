@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <label for="">Ordered by</label>
+  <label for="">Ordenar por</label>
   <select (change)='onSelectChange($event)'>
     <option *ngFor='let filter of filters' [value]="filter.value">{{filter.name}}</option>
   </select>

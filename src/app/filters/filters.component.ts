@@ -1,51 +1,51 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Category } from '../shared/category.model'
+import { Category } from '../shared/category.model';
 
 @Component({
-  selector: 'filters',
+  selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
 
   @Input()
-  categories: Category[]
+  categories: Category[];
 
   @Input()
-  customFilters: any[]
+  customFilters: any[];
 
   @Input()
-  priceFilters: any[]
+  priceFilters: any[];
 
   @Output()
-  onFilterChange = new EventEmitter<any>()
+  filterChange = new EventEmitter<any>();
 
 
-  showFilters: boolean = true
+  showFilters = true;
 
-  sideShown: boolean = false
+  sideShown = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  reset(customFilters, priceFilters){
-    this.customFilters = customFilters
-    this.priceFilters = priceFilters
-    this.showFilters = false
+  reset(customFilters, priceFilters) {
+    this.customFilters = customFilters;
+    this.priceFilters = priceFilters;
+    this.showFilters = false;
     setTimeout(() => {
-      this.showFilters = true
+      this.showFilters = true;
     });
   }
 
-  onInputChange($event, filter, type){
-    let change = $event.target.checked ? 1: -1
-    this.onFilterChange.emit({
+  onInputChange($event, filter, type) {
+    const change = $event.target.checked ? 1 : -1;
+    this.filterChange.emit({
       type: type,
       filter: filter,
       isChecked: $event.target.checked,
       change: change
-    })
+    });
   }
 }

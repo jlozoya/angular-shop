@@ -66,6 +66,11 @@
   height: 85px;
   position: relative;
   overflow: hidden;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .details{

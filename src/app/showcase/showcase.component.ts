@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../shared/product.model'
+import { Product } from '../shared/product.model';
 import { CartService } from '../cart.service';
 
 @Component({
-  selector: 'showcase',
+  selector: 'app-showcase',
   templateUrl: './showcase.component.html',
   styleUrls: ['./showcase.component.scss']
 })
 export class ShowcaseComponent implements OnInit {
 
-  @Input() products: Product[]
+  @Input() products: Product[];
 
   constructor(private cartService: CartService) {
 

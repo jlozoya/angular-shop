@@ -2,19 +2,19 @@ export const DATA: any  = {
   'categories': [
     {
       'categori_id': 1,
-      'name': 'drinks'
+      'name': 'bebidas'
     },
     {
       'categori_id': 2,
-      'name': 'lunch'
+      'name': 'almuerzo'
     },
     {
       'categori_id': 3,
-      'name': 'food'
+      'name': 'comida'
     },
     {
       'categori_id': 4,
-      'name': 'sea'
+      'name': 'mar'
     }
   ],
   'products': [

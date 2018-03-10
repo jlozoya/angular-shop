@@ -3,20 +3,20 @@
     <div class="row">
       <div class="col-3">
         <div class="filters-wrapper">
-          <url-form (onURLChange)='onURLChange($event)'></url-form>
-          <cart></cart>
-          <filters #filtersComponent [categories]='originalData.categories' [customFilters]='customFilters' [priceFilters]='priceFilters' (onFilterChange)='onFilterChange($event)'></filters>
+          <app-url-form (urlChange)='onURLChange($event)'></app-url-form>
+          <app-cart></app-cart>
+          <app-filters #filtersComponent [categories]='originalData.categories' [customFilters]='customFilters' [priceFilters]='priceFilters' (filterChange)='onFilterChange($event)'></app-filters>
         </div>
       </div>
       <div class="col-9">
         <div class="row">
           <div class="col-8">
             <div class="sort-filters-wrapper">
-              <sort-filters [filters]='sortFilters' (onSortChange)='sortProducts($event)'></sort-filters>
+              <app-sort-filters [filters]='sortFilters' (sortChange)='sortProducts($event)'></app-sort-filters>
             </div>
           </div>
           <div class="col-4">
-            <search-bar  #searchComponent (onSearchChange)='onSearchChange($event)'></search-bar>
+            <app-search-bar #searchComponent (searchChange)='onSearchChange($event)'></app-search-bar>
           </div>
         </div>
         <div class="row">
@@ -26,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <showcase [products]='products'></showcase>
+            <app-showcase [products]='products'></app-showcase>
           </div>
         </div>
       </div>

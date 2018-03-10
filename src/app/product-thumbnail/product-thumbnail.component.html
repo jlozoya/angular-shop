@@ -7,11 +7,11 @@
     <h5 class="title">{{product.name}}</h5>
     <p class="price">$<span>{{product.price}}</span></p>
     <div class="details">
-      <div class="available" *ngIf = 'product.available'>
+      <div class="available" *ngIf='product.available'>
         <hr>
         <div class="row">
           <div class="col-8-sm view-details-wrapper">
-            <button type="button" class="view" (click)='onProductClick()'>View details</button>
+            <button type="button" class="view" (click)='onProductClick()'>Ver detalles</button>
           </div>
           <div class="col-4-sm add-cart-wrapper">
             <button type="button" class="cart" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" /></button>
@@ -20,7 +20,7 @@
       </div>
       <div class="not-available" *ngIf = '!product.available'>
         <hr>
-        <p>Not available</p>
+        <p>No disponible</p>
       </div>
     </div>
     <!--span class="category-name" *ngFor='let category of product.categories'>{{category}}</span-->
@@ -31,7 +31,7 @@
         <p class="d-holder d-price">$ {{product.price}}</p>
         <p class="d-holder d-description">{{product.description}}</p>
       </div>
-      <button type="button" class="hide-detail-btn" (click)='onProductClick()'>Click to hide</button>
+      <button type="button" class="hide-detail-btn" (click)='onProductClick()'>Ocultar</button>
     </div>
   </div>
   <div class="bestseller-badge" [class.in-detailed]='detailViewActive' *ngIf = 'product.best_seller'>

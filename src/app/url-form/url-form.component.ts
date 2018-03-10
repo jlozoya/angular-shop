@@ -1,25 +1,25 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'url-form',
+  selector: 'app-url-form',
   templateUrl: './url-form.component.html',
   styleUrls: ['./url-form.component.scss']
 })
 export class UrlFormComponent implements OnInit {
 
   @Output()
-  onURLChange = new EventEmitter<string>()
+  urlChange = new EventEmitter<string>();
 
-  expanded: boolean = false
+  expanded = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSend(url){
-      this.expanded = false
-      this.onURLChange.emit(url)
+  onSend(url) {
+      this.expanded = false;
+      this.urlChange.emit(url);
   }
 
 }
