@@ -1,64 +1,63 @@
-# Angular 2 Shop
+# Angular Shop
 
-This is an example project to show an implementation of a fancy, responsive, cross browser compatible (IE11) shop/ecommerce webapp made on Angular 2.
+Este es un proyecto de ejemplo para mostrar una implementación de una aplicación de comercio / comercio electrónico elegante, sensible, compatible con cross browser (IE11) hecha en Angular.
 
-**Demo:** [carlosroso.com/angular2-shop](http://carlosroso.com/angular2-shop/)
+Autor original: [carloso1222](https://github.com/caroso1222/angular2-shop)
 
-##Features
-* Sort products by name, price (asc) and price (desc)
-* Instant search by product name
-* Filter products by categories, price range, availability, and more custom filters.
-* Add products to the shopping cart
-* See details and manage the shopping cart
-* You can also load your own data through the app. You'll see a red button with a *link* icon, click it and paste the URL. The JSON file must follow a specific format. [see example here](http://carlosroso.com/angular2-shop-json/). **IMPORTANT:** Make sure you set the appropriate `Access-Control-Allow-Methods` header on your JSON HTTP response. 
-* **Pretty good looking UI and some fancy animations to improve UX**
+## Caracteristicas
+* Ordenar productos por nombre, precio (asc) y precio (desc)
+* Búsqueda instantánea por nombre del producto
+* Filtre productos por categorías, rango de precios, disponibilidad y más filtros personalizados.
+* Agregar productos al carrito de compras
+* Ver detalles y administrar el carrito de compras
+* También puedes cargar tus propios datos a través de la aplicación. Verá un botón rojo con un ícono de * enlace *, haga clic en él y pegue la URL. El archivo JSON debe seguir un formato específico. [ver ejemplo aquí] (http://carlosroso.com/angular2-shop-json/). ** IMPORTANTE: ** Asegúrese de establecer el encabezado apropiado de `Access-Control-Allow-Methods` en su respuesta HTTP JSON.
+* **Interfaz de usuario bastante atractiva y algunas animaciones de fantasía para mejorar UX**
 
-##Installation
+## Instalación
 
-Clone the project
+Clona el proyecto
 ```bash
 git clone https://github.com/caroso1222/angular2-shop
 ```
 
-Install npm dependencies inside the project folder
+Instalar dependencias npm dentro de la carpeta del proyecto
 ```bash
-cd angular2-shop
+cd angular-shop
 npm install
 ```
 
-Make sure you have `angular-cli` installed. I'll try to keep this project updated with the latest `angular-cli` version.
+Asegúrate de tener `angular-cli` instalado. Trataré de mantener este proyecto actualizado con la última versión `angular-cli`.
 ```bash
 npm install -g angular-cli
 ```
 
-Start the application
+Comience la aplicación
 ```bash
 ng serve
 ```
 
-Now open a new tab at **localhost:4200**.
+Ahora abra una nueva pestaña en **localhost:4200**.
 
+## Contribuyendo
 
-##Contributing
+Este proyecto fue generado con [angular-cli](https://github.com/angular/angular-cli) versión 1.0.0-beta.15.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.15.
+### Servidor de desarrollo
+Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se volverá a cargar automáticamente si cambia alguno de los archivos fuente.
 
-### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Andamio de código
 
-### Code scaffolding
+Ejecute `ng generate component component-name` para generar un nuevo componente. También puede usar `ng generate directive/pipe/service/class`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+### Construir
 
-### Build
+Ejecuta `ng build` para construir el proyecto. Los artefactos de construcción se almacenarán en el directorio `dist/`. Use el indicador `-prod` para una compilación de producción.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Ejecución de pruebas unitarias
 
-### Running unit tests
+Ejecute `ng test` para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Ejecución de pruebas de extremo a extremo
 
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Ejecute `ng e2e` para ejecutar las pruebas de extremo a extremo a través de [Transportador] (http://www.protractortest.org/).
+Antes de ejecutar las pruebas, asegúrese de que está publicando la aplicación mediante `ng serve`.
