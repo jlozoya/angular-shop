@@ -7,23 +7,26 @@
     <h5 class="title">{{product.name}}</h5>
     <p class="price">$<span>{{product.price}}</span></p>
     <div class="details">
-      <div class="available" *ngIf='product.available'>
-        <hr>
-        <div class="row">
-          <div class="col-8-sm view-details-wrapper">
-            <button type="button" class="view" (click)='onProductClick()'>Ver detalles</button>
-          </div>
-          <div class="col-4-sm add-cart-wrapper">
-            <button type="button" class="cart" (click)="onAddToCart()"><img src="../../assets/cart_primary.svg" alt="" /></button>
+      @if (product.available) {
+        <div class="available">
+          <hr>
+          <div class="row">
+            <div class="col-8-sm view-details-wrapper">
+              <button type="button" class="view" (click)='onProductClick()'>Ver detalles</button>
+            </div>
+            <div class="col-4-sm add-cart-wrapper">
+              <button type="button" class="cart" (click)="onAddToCart()"><img src="assets/cart_primary.svg" alt="" /></button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="not-available" *ngIf = '!product.available'>
-        <hr>
-        <p>No disponible</p>
-      </div>
+      }
+      @if (!product.available) {
+        <div class="not-available">
+          <hr>
+          <p>No disponible</p>
+        </div>
+      }
     </div>
-    <!--span class="category-name" *ngFor='let category of product.categories'>{{category}}</span-->
     <div class="detail-view" [class.active]='detailViewActive'>
       <div class="bg" [class.shown]='detailViewActive'></div>
       <div class="info-wrapper">
@@ -34,9 +37,11 @@
       <button type="button" class="hide-detail-btn" (click)='onProductClick()'>Ocultar</button>
     </div>
   </div>
-  <div class="bestseller-badge" [class.in-detailed]='detailViewActive' *ngIf = 'product.best_seller'>
-    <span class="star left">&nbsp;</span>
-    <span class="txt">Bestseller</span>
-    <span class="star right">&nbsp;</span>
-  </div>
+  @if (product.best_seller) {
+    <div class="bestseller-badge" [class.in-detailed]='detailViewActive'>
+      <span class="star left">&nbsp;</span>
+      <span class="txt">Bestseller</span>
+      <span class="star right">&nbsp;</span>
+    </div>
+  }
 </div>

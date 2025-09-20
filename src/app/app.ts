@@ -14,7 +14,6 @@ import { UrlFormComponent } from './url-form/url-form.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [
@@ -27,7 +26,7 @@ import { UrlFormComponent } from './url-form/url-form.component';
   ],
   providers: [DataService, CartService]
 })
-export class AppComponent implements OnInit {
+export class App implements OnInit {
 
   products: Product[] = [];
 

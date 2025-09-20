@@ -1,40 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { DATA } from './mock-data';
-import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DataService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: Http) { }
-
+  /** Local mock data — use Observable for consistency */
   getData(): Promise<any> {
     return Promise.resolve(DATA);
   }
 
-  getRemoteData(url): Observable<any> {
-    return this.http.get(url)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+  /** Remote data — HttpClient already parses JSON */
+  getRemoteData<T = any>(url: string): Observable<T> {
+    return this.http.get<T>(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  private extractData(res: Response) {
-    const body = res.json();
-    return body || { };
+  private handleError(error: HttpErrorResponse) {
+    const message =
+      error.error?.message ||
+      (typeof error.error === 'string' && error.error) ||
+      `${error.status} - ${error.statusText || 'Server error'}`;
+    console.error('HTTP error:', error);
+    return throwError(() => new Error(message));
   }
-
-  private handleError (error: any) {
-    // In a real world app, we might use a remote logging infrastructure
-    // We'd also dig deeper into the error to get a better message
-    const errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
-  }
-
 }

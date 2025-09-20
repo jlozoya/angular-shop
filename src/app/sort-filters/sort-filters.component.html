@@ -1,7 +1,9 @@
 <div class="wrapper">
   <label for="">Ordenar por</label>
   <select (change)='onSelectChange($event)'>
-    <option *ngFor='let filter of filters' [value]="filter.value">{{filter.name}}</option>
+    @for (filter of filters; track $index) {
+      <option [value]="filter.value">{{filter.name}}</option>
+    }
   </select>
   <div class="triangle"></div>
 </div>

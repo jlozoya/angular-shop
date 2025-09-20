@@ -1,25 +1,29 @@
 <div class="preview" [class.expanded]='expanded'>
   <button [class.not-shown]='!products.length || expanded' type="button" class="circle" (click)="onCartClick()">
-    <img src="../../assets/cart_white.svg" alt="cart" />
+    <img src="assets/cart_white.svg" alt="cart" />
     <div class="indicator"><span>{{numProducts}}</span></div>
   </button>
   <div class="fill" [style.height]="expanded ? expandedHeight : inherit" [class.not-shown]='!products.length' [class.animate-plop]='animatePlop' [class.shown]='animatePopout && !expanded'>
     <div class="expanded-info" [class.shown]='expanded'>
       <h3>Esta es tu lista de compras:</h3>
-      <div class="product" *ngFor="let item of products">
-        <div class="row">
-          <div class="col-6-sm description">
-            <p>{{item.quantity}} x {{item.product.name}}</p>
+      @for (item of products; track item.id) {
+        <div class="product">
+          <div class="row">
+            <div class="col-6-sm description">
+              <p>{{item.quantity}} x {{item.product.name}}</p>
+            </div>
+            <div class="col-6-sm price">
+              <p>{{item.quantity * item.product.parsedPrice}}</p>
+            </div>
           </div>
-          <div class="col-6-sm price">
-            <p>{{item.quantity*item.product.parsedPrice | currency:'USD':'symbol':'1.0-0' }}</p>
-          </div>
+          <button class="delete-btn" (click)='deleteProduct(item.product)'>x</button>
         </div>
-        <button class="delete-btn" (click)='deleteProduct(item.product)'>x</button>
-      </div>
-      <button type="button" class="pay-btn">Pagar {{cartTotal | currency:'USD':'symbol':'1.0-0'}}</button>
+      }
+      <button type="button" class="pay-btn">Pagar {{cartTotal}}</button>
     </div>
-    <button type="button" class="close-btn" *ngIf='expanded' (click)="onCartClick()">Cerrar</button>
+    @if (expanded) {
+      <button type="button" class="close-btn" (click)="onCartClick()">Cerrar</button>
+    }
   </div>
 </div>
 <div class="overlay" [class.shown]='expanded'>

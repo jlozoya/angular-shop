@@ -1,6 +1,7 @@
 <div class="row">
+  @for (product of products; track product.id) {
     <app-product-thumbnail [product]="product"
-      *ngFor="let product of products"
       class="col-4 product-thumbnail">
     </app-product-thumbnail>
+  }
 </div>

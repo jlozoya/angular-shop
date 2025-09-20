@@ -2,36 +2,49 @@
 <div class="filters" [class.side-shown]="sideShown">
   <button type="button" class="close-side-btn" (click)="sideShown = false">x</button>
   <h5>Filtrar por categoría</h5>
-  <form *ngIf="showFilters">
-    <div class="category-filter filter-wrapper" *ngFor='let filter of categories'>
-      <label class="fake-checkbox">
-        <input type="checkbox" checked (change)='onInputChange($event, filter, "category")'>
-        <span class="square"><span class="fill"></span></span>
-        <span class="label">{{filter.name}}</span>
-        <span></span>
-      </label>
-    </div>
-  </form>
+  @if (showFilters) {
+    <form>
+      @for (filter of categories; track $index) {
+        <div class="category-filter filter-wrapper">
+          <label class="fake-checkbox">
+            <input type="checkbox" checked (change)='onInputChange($event, filter, "category")'>
+            <span class="square"><span class="fill"></span></span>
+            <span class="label">{{filter.name}}</span>
+            <span></span>
+          </label>
+        </div>
+      }
+    </form>
+  }
   <h5>Filtrar por precio</h5>
-  <form *ngIf="showFilters">
-    <div class="custom-filter filter-wrapper" *ngFor='let filter of priceFilters'>
-        <label class="fake-checkbox">
-          <input type="radio" name="price" [checked]='filter.checked' (click)='onInputChange($event, filter, "price")'>
-          <span class="circle"><span class="fill"></span></span>
-          <span class="label">{{filter.name}}</span>
-          <span></span>
-        </label>
-    </div>
-  </form>
+
+  @if (showFilters) {
+    <form>
+      @for (filter of priceFilters; track $index) {
+        <div class="custom-filter filter-wrapper">
+            <label class="fake-checkbox">
+              <input type="radio" name="price" [checked]='filter.checked' (click)='onInputChange($event, filter, "price")'>
+              <span class="circle"><span class="fill"></span></span>
+              <span class="label">{{filter.name}}</span>
+              <span></span>
+            </label>
+        </div>
+      }
+    </form>
+  }
   <h5>Filtros personalizados</h5>
-  <form *ngIf="showFilters">
-    <div class="custom-filter filter-wrapper" *ngFor='let filter of customFilters'>
-        <label class="fake-checkbox">
-          <input type="radio" name="custom" [checked]='filter.checked' (click)='onInputChange($event, filter, "custom")'>
-          <span class="circle"><span class="fill"></span></span>
-          <span class="label">{{filter.name}}</span>
-          <span></span>
-        </label>
-    </div>
-  </form>
+  @if (showFilters) {
+    <form>
+      @for (filter of customFilters; track $index) {
+        <div class="custom-filter filter-wrapper">
+            <label class="fake-checkbox">
+              <input type="radio" name="custom" [checked]='filter.checked' (click)='onInputChange($event, filter, "custom")'>
+              <span class="circle"><span class="fill"></span></span>
+              <span class="label">{{filter.name}}</span>
+              <span></span>
+            </label>
+        </div>
+      }
+    </form>
+  }
 </div>

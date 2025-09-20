@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./app/shared/grid";
-@import "./app/shared/colors";
+/* You can add global styles to this file, and also import other style files */
+@use "./app/shared/grid" as *;
+@use "./app/shared/colors" as *;
+
 $font-family: 'Roboto', Helvetica, sans-serif;
 
 html, body {

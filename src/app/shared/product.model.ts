@@ -1,10 +1,10 @@
 export class Product {
-  id: number;
-  name: string;
-  price: string;
-  available: boolean;
-  best_seller: boolean;
-  categories: number[];
-  img: string;
-  description: string;
+  id: number = 0;
+  name: string = '';
+  price: string = '';
+  available: boolean = false;
+  best_seller: boolean = false;
+  categories: number[] = [0];
+  img: string = '';
+  description: string = '';
 }

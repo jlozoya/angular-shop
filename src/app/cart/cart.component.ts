@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CartService } from '../cart.service';
-import { Subscription } from 'rxjs/Subscription';
+import { CommonModule } from '@angular/common';
 
 const OFFSET_HEIGHT = 170;
 const PRODUCT_HEIGHT = 48;
@@ -8,7 +8,8 @@ const PRODUCT_HEIGHT = 48;
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+  imports: [CommonModule]
 })
 export class CartComponent implements OnInit {
 
@@ -17,10 +18,9 @@ export class CartComponent implements OnInit {
   animatePlop = false;
   animatePopout = false;
   expanded = false;
-  expandedHeight: string;
+  expandedHeight: string = '';
   cartTotal = 0;
-  inherit: string;
-
+  inherit: string = '';
 
   changeDetectorRef: ChangeDetectorRef;
 
@@ -31,10 +31,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.expandedHeight = '0';
-    this.cartService.productAdded$.subscribe(data => {
+    this.cartService.productAdded$.subscribe((data: any) => {
       this.products = data.products;
       this.cartTotal = data.cartTotal;
-      this.numProducts = data.products.reduce((acc, product) => {
+      this.numProducts = data.products.reduce((acc: any, product: any) => {
         acc += product.quantity;
         return acc;
       }, 0);
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  deleteProduct(product) {
+  deleteProduct(product: any) {
     this.cartService.deleteProductFromCart(product);
   }
 

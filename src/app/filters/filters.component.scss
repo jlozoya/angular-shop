@@ -1,5 +1,5 @@
-@import "../shared/colors";
-@import "../shared/mixins";
+@use "../shared/colors" as *;
+@use "../shared/mixins" as *;
 
 .filters{
   border: 1px solid #333333;

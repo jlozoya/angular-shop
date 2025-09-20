@@ -17,7 +17,7 @@ export class UrlFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSend(url) {
+  onSend(url: string) {
       this.expanded = false;
       this.urlChange.emit(url);
   }

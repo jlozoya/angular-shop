@@ -2,12 +2,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
+  standalone: true,
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
 
-  previousSearch: string;
+  previousSearch: string = '';
 
   animatePlop = false;
 
@@ -28,7 +29,7 @@ export class SearchBarComponent implements OnInit {
       1 if the search term length has increased
       0 if the search term remained equal
   */
-  private onSearchKeyup(search: string) {
+  onSearchKeyup(search: string) {
     let change = 0;
     if (search.length > this.previousSearch.length) {
       change = 1;

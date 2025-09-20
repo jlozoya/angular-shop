@@ -1,21 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Category } from '../shared/category.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.scss']
+  styleUrls: ['./filters.component.scss'],
+  imports: [CommonModule]
 })
 export class FiltersComponent implements OnInit {
 
   @Input()
-  categories: Category[];
+  categories: Category[] = [];
 
   @Input()
-  customFilters: any[];
+  customFilters: any[] = [];
 
   @Input()
-  priceFilters: any[];
+  priceFilters: any[] = [];
+
+  @Input()
+  filter: any = {};
 
   @Output()
   filterChange = new EventEmitter<any>();
@@ -30,7 +35,7 @@ export class FiltersComponent implements OnInit {
   ngOnInit() {
   }
 
-  reset(customFilters, priceFilters) {
+  reset(customFilters: any, priceFilters: any) {
     this.customFilters = customFilters;
     this.priceFilters = priceFilters;
     this.showFilters = false;
@@ -39,7 +44,7 @@ export class FiltersComponent implements OnInit {
     });
   }
 
-  onInputChange($event, filter, type) {
+  onInputChange($event: any, filter: any, type: any) {
     const change = $event.target.checked ? 1 : -1;
     this.filterChange.emit({
       type: type,

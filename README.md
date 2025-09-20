@@ -1,63 +1,127 @@
-# Angular Shop
+Aquí tienes el **README actualizado y modernizado** para tu proyecto, con correcciones de estilo, markdown y algunos ajustes a las versiones modernas de Angular y Angular CLI:
 
-Este es un proyecto de ejemplo para mostrar una implementación de una aplicación de comercio / comercio electrónico elegante, sensible, compatible con cross browser (IE11) hecha en Angular.
+````markdown
+# 🛍️ Angular Shop
 
-Autor original: [carloso1222](https://github.com/caroso1222/angular2-shop)
+Proyecto de ejemplo que muestra la implementación de una aplicación de **comercio electrónico elegante, responsiva y compatible con navegadores modernos**, construida con **Angular**.
 
-## Caracteristicas
-* Ordenar productos por nombre, precio (asc) y precio (desc)
-* Búsqueda instantánea por nombre del producto
-* Filtre productos por categorías, rango de precios, disponibilidad y más filtros personalizados.
-* Agregar productos al carrito de compras
-* Ver detalles y administrar el carrito de compras
-* También puedes cargar tus propios datos a través de la aplicación. Verá un botón rojo con un ícono de * enlace *, haga clic en él y pegue la URL. El archivo JSON debe seguir un formato específico. [ver ejemplo aquí] (http://carlosroso.com/angular2-shop-json/). ** IMPORTANTE: ** Asegúrese de establecer el encabezado apropiado de `Access-Control-Allow-Methods` en su respuesta HTTP JSON.
-* **Interfaz de usuario bastante atractiva y algunas animaciones de fantasía para mejorar UX**
+---
 
-## Instalación
+## ✨ Características
 
-Clona el proyecto
+- Ordenar productos por nombre, precio (ascendente y descendente).
+- Búsqueda instantánea por nombre del producto.
+- Filtrar productos por categorías, rango de precios, disponibilidad y más filtros personalizados.
+- Agregar productos al carrito de compras.
+- Ver detalles y administrar el carrito de compras.
+- Cargar tus propios datos a través de la aplicación:
+  - Verás un botón rojo con un ícono de **enlace**, haz clic en él y pega la URL.
+  - El archivo **JSON** debe seguir un formato específico ([ejemplo aquí](http://carlosroso.com/angular2-shop-json/)).
+  - ⚠️ **Importante:** asegúrate de configurar correctamente el encabezado `Access-Control-Allow-Methods` en tu respuesta HTTP JSON.
+- **UI atractiva** con animaciones que mejoran la experiencia de usuario (UX).
+
+---
+
+## 🚀 Instalación
+
+Clona el repositorio:
+
 ```bash
-git clone https://github.com/caroso1222/angular2-shop
-```
+git clone https://github.com/jlozoya/angular-shop
+````
 
-Instalar dependencias npm dentro de la carpeta del proyecto
+Instala las dependencias dentro de la carpeta del proyecto:
+
 ```bash
 cd angular-shop
 npm install
 ```
 
-Asegúrate de tener `angular-cli` instalado. Trataré de mantener este proyecto actualizado con la última versión `angular-cli`.
+Asegúrate de tener instalada la última versión de Angular CLI:
+
 ```bash
-npm install -g angular-cli
+npm install -g @angular/cli
 ```
 
-Comience la aplicación
+Inicia la aplicación en modo desarrollo:
+
 ```bash
 ng serve
 ```
 
-Ahora abra una nueva pestaña en **localhost:4200**.
+Abre tu navegador en [http://localhost:4200](http://localhost:4200).
 
-## Contribuyendo
+---
 
-Este proyecto fue generado con [angular-cli](https://github.com/angular/angular-cli) versión 1.0.0-beta.15.
+## 🤝 Contribuyendo
 
-### Servidor de desarrollo
-Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se volverá a cargar automáticamente si cambia alguno de los archivos fuente.
+Este proyecto se generó originalmente con [Angular CLI](https://github.com/angular/angular-cli) **v1.0.0-beta.15**.
+Se recomienda actualizar a la versión más reciente de Angular para aprovechar nuevas funcionalidades y optimizaciones.
 
-### Andamio de código
+---
 
-Ejecute `ng generate component component-name` para generar un nuevo componente. También puede usar `ng generate directive/pipe/service/class`.
+## 📖 Scripts disponibles
 
-### Construir
+### ▶️ Servidor de desarrollo
 
-Ejecuta `ng build` para construir el proyecto. Los artefactos de construcción se almacenarán en el directorio `dist/`. Use el indicador `-prod` para una compilación de producción.
+Ejecuta:
 
-### Ejecución de pruebas unitarias
+```bash
+ng serve
+```
 
-Ejecute `ng test` para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
+Esto levantará un servidor en [http://localhost:4200](http://localhost:4200).
+La aplicación se recargará automáticamente si cambias archivos fuente.
 
-### Ejecución de pruebas de extremo a extremo
+### 🏗️ Generar código
 
-Ejecute `ng e2e` para ejecutar las pruebas de extremo a extremo a través de [Transportador] (http://www.protractortest.org/).
-Antes de ejecutar las pruebas, asegúrese de que está publicando la aplicación mediante `ng serve`.
+```bash
+ng generate component component-name
+```
+
+También puedes usar:
+
+* `ng generate directive`
+* `ng generate pipe`
+* `ng generate service`
+* `ng generate class`
+
+### 📦 Construcción de la app
+
+```bash
+ng build
+```
+
+Los artefactos se guardarán en la carpeta `dist/`.
+Usa la opción `--configuration production` (o `--prod` en versiones anteriores) para un build optimizado.
+
+### 🧪 Pruebas unitarias
+
+```bash
+ng test
+```
+
+Ejecuta las pruebas unitarias con [Karma](https://karma-runner.github.io).
+
+### 🔍 Pruebas end-to-end (E2E)
+
+```bash
+ng e2e
+```
+
+Ejecuta las pruebas E2E con [Protractor](http://www.protractortest.org/).
+Antes de correrlas, asegúrate de tener la aplicación levantada con `ng serve`.
+
+---
+
+## 📌 Notas
+
+* Compatibilidad con **Angular moderno** (reemplazar dependencias obsoletas según la versión que uses).
+* Si quieres usarlo como **proyecto de aprendizaje**, es ideal para explorar conceptos de Angular como:
+
+  * Componentes
+  * Data binding
+  * Formularios
+  * Servicios
+  * Rutas
+  * Pipes personalizados

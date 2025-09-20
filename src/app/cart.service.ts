@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './shared/product.model';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 
 @Injectable()
@@ -16,7 +16,7 @@ export class CartService {
 
   constructor() { }
 
-  addProductToCart(product) {
+  addProductToCart(product: any) {
     let exists = false;
     const parsedPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
     this.cartTotal += parsedPrice;
@@ -40,7 +40,7 @@ export class CartService {
     this.productAddedSource.next({ products: this.products, cartTotal: this.cartTotal });
   }
 
-  deleteProductFromCart(product) {
+  deleteProductFromCart(product: any) {
     this.products = this.products.filter(_product => {
       if (_product.product.id === product.id) {
         this.cartTotal -= _product.product.parsedPrice * _product.quantity;

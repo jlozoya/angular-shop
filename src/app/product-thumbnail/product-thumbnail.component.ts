@@ -9,9 +9,18 @@ import { CartService } from '../cart.service';
 })
 export class ProductThumbnailComponent implements OnInit {
 
-  @Input() product: Product;
+  @Input() product: Product = {
+    id: 0,
+    name: '',
+    price: '',
+    available: false,
+    best_seller: false,
+    categories: [0],
+    img: '',
+    description: '',
+  };
 
-  detailViewActive: boolean;
+  detailViewActive: boolean = false;
 
   constructor(private cartService: CartService) {
 

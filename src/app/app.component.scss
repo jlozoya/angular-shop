@@ -1,5 +1,5 @@
-@import "./shared/colors";
-@import "./shared/mixins";
+@use "./shared/colors" as *;
+@use "./shared/mixins" as *;
 
 .main-container{
   padding-top: 100px;

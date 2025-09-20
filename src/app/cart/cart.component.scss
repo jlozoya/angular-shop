@@ -1,16 +1,16 @@
-@import "../shared/colors";
-@import "../shared/mixins";
+@use "../shared/colors" as *;
+@use "../shared/mixins" as *;
 
-.preview{
+.preview {
   position: relative;
-  .fill{
+  .fill {
     position: absolute;
     top: 0;
     left: 0;
   }
 }
 
-.close-btn{
+.close-btn {
   position: absolute;
   top: 6px;
   right: 5px;
@@ -21,12 +21,12 @@
   font-weight: 600;
   text-decoration: underline;
   opacity: 0.8;
-  &:hover{
+  &:hover {
     opacity: 1;
   }
 }
 
-.pay-btn{
+.pay-btn {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,7 @@
   margin-top: 20px;
 }
 
-.expanded-info{
+.expanded-info {
   opacity: 0;
   z-index: -1;
   position: absolute;
@@ -57,49 +57,49 @@
     -webkit-transform: translateY(10px);
     @include transition-fade(0.5s);
   }
-  .price{
+  .price {
     text-align: right;
   }
-  &.shown{
+  &.shown {
     opacity: 1;
     z-index: 3;
-    .product, h3, .pay-btn{
+    .product, h3, .pay-btn {
       transform: translateY(0);
       -webkit-transform: translateY(0);
     }
-    h3{
+    h3 {
       -webkit-transition-delay: 0.2s;
       transition-delay: 0.2s;
       opacity: 0.43;
     }
 
-    .product{
+    .product {
       -webkit-transition-delay: 0.4s;
       transition-delay: 0.4s;
       opacity: 1;
     }
 
-    .pay-btn{
+    .pay-btn {
       -webkit-transition-delay: 0.6s;
       transition-delay: 0.6s;
       opacity: 1;
     }
   }
-  h3{
+  h3 {
     font-weight: 400;
     font-size: 16px;
     margin-top: 30px;
   }
-  .product{
+  .product {
     position: relative;
     width: 95%;
-    p{
+    p {
       margin: 0;
     }
-    &:not(:last-child){
+    &:not(:last-child) {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .delete-btn{
+    .delete-btn {
       position: absolute;
       right: -28px;
       top: 14px;
@@ -109,19 +109,19 @@
       color: white;
       font-weight: 600;
       font-size: 0.8em;
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
     }
   }
 }
 
-.preview.expanded{
-  .fill{
+.preview.expanded {
+  .fill {
     width: 460px;
     border-radius: 3px;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.49);
-    &.animate-plop{
+    &.animate-plop {
       -webkit-transform: scale(1.02);
       transform: scale(1.02);
     }
@@ -129,13 +129,13 @@
 }
 
 
-.preview:not(.expanded) .fill:hover{
+.preview:not(.expanded) .fill:hover {
   box-shadow: 0 2px 13px rgba(49, 46, 82, 0.65);
 }
 
 
-.preview{
-  .fill{
+.preview {
+  .fill {
     height: 40px;
     width: 40px;
     box-shadow: 0 2px 13px rgba(93, 78, 240, 0.55);
@@ -144,20 +144,20 @@
     z-index: 4;
     @include transition-fade-circ(0.35s);
 
-    &.not-shown{
+    &.not-shown {
       -webkit-transform: scale(0);
       transform: scale(0);
     }
-    &.shown{
+    &.shown {
       -webkit-transform: scale(1.3);
       transform: scale(1.3);
     }
-    &.animate-plop{
+    &.animate-plop {
       -webkit-transform: scale(1.35);
       transform: scale(1.35);
     }
   }
-  .circle{
+  .circle {
     height: 40px;
     width: 40px;
     border: none;
@@ -167,17 +167,17 @@
     z-index: 5;
     background: none;
     @include transition-fade-circ(0.2s);
-    img{
+    img {
       position: relative;
       top: 3px;
       left: -1px;
     }
-    &.not-shown{
+    &.not-shown {
       -webkit-transform: scale(0);
       transform: scale(0);
     }
   }
-  .indicator{
+  .indicator {
     background-color: #EF364C;
     height: 14px;
     width: 14px;
@@ -190,15 +190,14 @@
     right: 0;
     font-weight: 700;
     text-align: center;
-    span{
+    span {
       position: relative;
       top: 1px;
     }
-
   }
 }
 
-.overlay{
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -214,48 +213,48 @@
   and (min-device-width: 320px)
   and (max-device-width: 480px) {
 
-    .overlay.shown{
+    .overlay.shown {
         height: 100%;
         opacity: 1;
         z-index: 9;
     }
 
-    .pay-btn{
+    .pay-btn {
       margin-top: 35px;
     }
-    .close-btn{
+    .close-btn {
       z-index: 90;
     }
-    .description, .price{
-      p{
+    .description, .price {
+      p {
         font-size: 1em;
       }
     }
-    .expanded-info{
+    .expanded-info {
       width: 90%;
-      h3{
+      h3 {
         font-size: 0.9em;
       }
-      .product .delete-btn{
+      .product .delete-btn {
         right: -21px;
         top: 10px;
       }
     }
-    .preview{
+    .preview {
       position: fixed;
       bottom: 3%;
       right: 5%;
       width: 13%;
       @include transition-fade-circ(0.3s);
-      .fill{
+      .fill {
         box-shadow: 0 2px 13px rgba(93, 78, 240, 0.75);
       }
-      &.expanded{
+      &.expanded {
         width: 90%;
         margin: 0 auto;
         bottom: 75%;
         z-index: 800;
-        .fill{
+        .fill {
           width: 100%;
         }
       }

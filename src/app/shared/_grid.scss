@@ -1,15 +1,16 @@
-// SIMPLE GRID - SASS/SCSS
+// SIMPLE GRID - SASS/SCSS (deprecation-safe)
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+// 1) Load Sass math for division
+@use "sass:math";
 
-// fonts
+// 2) (Recommended) Load Google Fonts in HTML instead of Sass:
+// <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
 // colors
 $dark-grey: #333447;
-$dark-gray: #333447; // for the Americans
+$dark-gray: #333447; // alias
 
 // universal
-
 html,
 body {
   height: 100%;
@@ -21,67 +22,27 @@ body {
 }
 
 // typography
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.375rem;
-}
-
-h4 {
-  font-size: 1.125rem;
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.875rem;
-}
-
-p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.375rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+p  { font-size: 1.125rem; line-height: 1.8; }
 
 // utility
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
-.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.justify {
-  text-align: justify;
-}
-
-.hidden-sm {
-  display: none;
-}
+.left   { text-align: left; }
+.right  { text-align: right; }
+.center { text-align: center; margin-left: auto; margin-right: auto; }
+.justify{ text-align: justify; }
+.hidden-sm { display: none; }
 
 // grid
-
 $width: 96%;
 $gutter: 4%;
 $breakpoint-small: 33.75em; // 540px
-$breakpoint-med: 45em; // 720px
-$breakpoint-large: 60em; // 960px
+$breakpoint-med:   45em;    // 720px
+$breakpoint-large: 60em;    // 960px
 
 .container {
   width: 90%;
@@ -130,34 +91,40 @@ $breakpoint-large: 60em; // 960px
   width: $width;
 }
 
-.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
-.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
-.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
-.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
-.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
-.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
-.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
-.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
-.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
-.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
-.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+// Helper to compute column width without deprecated `/`
+@function col-width($n) {
+  // (($width / (12 / $n)) - ($gutter * (12 - $n) / 12))
+  @return math.div($width, math.div(12, $n)) - math.div($gutter * (12 - $n), 12);
+}
+
+/* Small (default) cols */
+.col-1-sm  { width: col-width(1); }
+.col-2-sm  { width: col-width(2); }
+.col-3-sm  { width: col-width(3); }
+.col-4-sm  { width: col-width(4); }
+.col-5-sm  { width: col-width(5); }
+.col-6-sm  { width: col-width(6); }
+.col-7-sm  { width: col-width(7); }
+.col-8-sm  { width: col-width(8); }
+.col-9-sm  { width: col-width(9); }
+.col-10-sm { width: col-width(10); }
+.col-11-sm { width: col-width(11); }
 .col-12-sm { width: $width; }
 
+/* Medium+ cols */
 @media only screen and (min-width: $breakpoint-med) {
-  .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
-  .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
-  .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
-  .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
-  .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
-  .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
-  .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
-  .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
-  .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
-  .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
-  .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-1  { width: col-width(1); }
+  .col-2  { width: col-width(2); }
+  .col-3  { width: col-width(3); }
+  .col-4  { width: col-width(4); }
+  .col-5  { width: col-width(5); }
+  .col-6  { width: col-width(6); }
+  .col-7  { width: col-width(7); }
+  .col-8  { width: col-width(8); }
+  .col-9  { width: col-width(9); }
+  .col-10 { width: col-width(10); }
+  .col-11 { width: col-width(11); }
   .col-12 { width: $width; }
 
-  .hidden-sm {
-    display: block;
-  }
+  .hidden-sm { display: block; }
 }
